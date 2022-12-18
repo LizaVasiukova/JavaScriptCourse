@@ -93,3 +93,38 @@ const picArray = [
 ];
 
 // add your code here
+
+let pictures = document.getElementById('pictures');
+let figure = [], h2 = [], img = [], figcaption = [], p = [], article = [];
+
+
+const createArticles = function (picArray) {
+
+  for (let i = 0; i < picArray.length; i++) {
+    article[i] = document.createElement('article');
+    article[i].setAttribute('class', 'card');
+    pictures.appendChild(article[i]);
+
+    h2[i] = document.createElement('h2');
+    h2[i].innerHTML += `${picArray[i]['title']}`;
+    article[i].appendChild(h2[i]);
+
+    figure[i] = document.createElement('figure');
+    article[i].appendChild(figure[i]);
+
+    img[i] = document.createElement('img');
+    img[i].setAttribute('src', picArray[i]['image']['medium']);
+    img[i].setAttribute('alt', picArray[i]['title']);
+    figure[i].appendChild(img[i]);
+
+    figcaption[i] = document.createElement('figcaption');
+    figcaption[i].innerHTML += picArray[i]['caption'];
+    figure[i].appendChild(figcaption[i]);
+
+    p[i] = document.createElement('p');
+    p[i].innerHTML += picArray[i]['description'];
+    article[i].appendChild(p[i]);
+  }
+}
+
+createArticles(picArray);
