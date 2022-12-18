@@ -5,11 +5,12 @@ ul.setAttribute('id', 'target');
 document.body.appendChild(ul);
 const target = document.getElementById('target');
 
-const randNum = () => Math.floor((Math.random() * 6 + 1));
+const sides = Number(prompt('Enter number of dice rolls: '));
+const randomNum = (sides) => Math.floor((Math.random() * sides + 1));
 
 while (true) {
-    let random = randNum();
-    if (random === 6) {
+    let random = randomNum(sides);
+    if (random === sides) {
         target.innerHTML += `<li>${random}</li>`;
         break;
     } else {
